@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function KartuEvent(props) {
   const event = props.event;
   const sisa = event.kuota - event.terdaftar;
@@ -19,7 +21,9 @@ function KartuEvent(props) {
         ) : (
           <p className="habis">Kuota habis</p>
         )}
-        <button className="btn tombol-detail">Lihat Detail</button>
+        <Link to={`/event/${event.id}`} className="btn tombol-detail">
+          Lihat Detail
+        </Link>
       </div>
     </article>
   );

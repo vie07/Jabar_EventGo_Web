@@ -7,7 +7,12 @@
     "kota": "Kota Bandung",
     "poster": "/images/kopi.jpg",
     "kuota": 100,
-    "terdaftar": 80
+    "terdaftar": 80,
+    "deskripsi": "Festival tahunan yang mempertemukan petani, roaster, dan pecinta kopi dari seluruh Jawa Barat. Ada kelas seduh, cupping, dan bazar kopi lokal.",
+    "jamMulai": "09:00",
+    "jamSelesai": "17:00",
+    "venue": "Gedung Sate",
+    "alamat": "Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung"
   },
   {
     "id": 2,
@@ -17,7 +22,12 @@
     "kota": "Kota Bogor",
     "poster": "/images/umkm.jpg",
     "kuota": 50,
-    "terdaftar": 50
+    "terdaftar": 50,
+    "deskripsi": "Seminar tentang strategi digitalisasi UMKM: pemasaran online, pencatatan keuangan digital, dan pemanfaatan marketplace.",
+    "jamMulai": "13:00",
+    "jamSelesai": "16:00",
+    "venue": "Balai Kota Bogor",
+    "alamat": "Jl. Ir. H. Juanda No.10, Ciwaringin, Kota Bogor"
   },
   {
     "id": 3,
@@ -27,7 +37,12 @@
     "kota": "Kabupaten Pangandaran",
     "poster": "/images/run.jpg",
     "kuota": 200,
-    "terdaftar": 35
+    "terdaftar": 35,
+    "deskripsi": "Lari santai menyusuri pantai Pangandaran dengan pilihan rute 5K dan 10K. Terbuka untuk semua usia.",
+    "jamMulai": "06:00",
+    "jamSelesai": "10:00",
+    "venue": "Pantai Barat Pangandaran",
+    "alamat": "Jl. Kidang Pananjung, Pangandaran, Kabupaten Pangandaran"
   },
   {
     "id": 4,
@@ -37,7 +52,12 @@
     "kota": "Kota Bandung",
     "poster": "/images/sunda.jpg",
     "kuota": 150,
-    "terdaftar": 90
+    "terdaftar": 90,
+    "deskripsi": "Pertunjukan musik Sunda yang memadukan kecapi suling, degung, dan musik kontemporer bersama seniman muda Bandung.",
+    "jamMulai": "19:00",
+    "jamSelesai": "21:30",
+    "venue": "Sasana Budaya Ganesha",
+    "alamat": "Jl. Tamansari No.73, Lebak Siliwangi, Kota Bandung"
   },
   {
     "id": 5,
@@ -47,7 +67,12 @@
     "kota": "Kota Bekasi",
     "poster": "/images/desain.jpg",
     "kuota": 40,
-    "terdaftar": 12
+    "terdaftar": 12,
+    "deskripsi": "Workshop praktik desain grafis untuk pemula: dasar tata letak, tipografi, dan warna menggunakan perangkat lunak gratis.",
+    "jamMulai": "10:00",
+    "jamSelesai": "15:00",
+    "venue": "Bekasi Creative Hub",
+    "alamat": "Jl. Ahmad Yani No.1, Marga Jaya, Kota Bekasi"
   },
   {
     "id": 6,
@@ -57,6 +82,11 @@
     "kota": "Kota Bogor",
     "poster": "/images/angklung.jpg",
     "kuota": 80,
-    "terdaftar": 20
+    "terdaftar": 20,
+    "deskripsi": "Pentas kolaborasi ratusan pemain angklung yang membawakan lagu daerah dan lagu populer, dilengkapi workshop singkat bermain angklung.",
+    "jamMulai": "15:00",
+    "jamSelesai": "18:00",
+    "venue": "Lapangan Sempur",
+    "alamat": "Jl. Sempur, Kec. Bogor Tengah, Kota Bogor"
   }
 ]
