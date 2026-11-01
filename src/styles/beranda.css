@@ -1,0 +1,99 @@
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  color: #1b3b6f;
+  text-align: center;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.grid-event {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.kartu {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.kartu img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.kartu-isi {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.kartu-isi h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #1e293b;
+}
+
+.kartu-isi p {
+  margin: 0;
+  color: #64748b;
+}
+
+.kartu-label {
+  display: flex;
+  gap: 8px;
+}
+
+.label-kategori {
+  background-color: #0e8388;
+  color: #ffffff;
+}
+
+.label-gratis {
+  background-color: #e5a93c;
+  color: #1e293b;
+}
+
+.tombol-detail {
+  background-color: #0e8388;
+  color: #ffffff;
+}
+
+.tombol-detail:hover {
+  background-color: #1b3b6f;
+  color: #ffffff;
+}
+
+.kartu-isi .habis {
+  color: #dc2626;
+}
+
+.pesan-error {
+  color: #dc2626;
+}
+
+.pesan {
+  text-align: center;
+  padding: 40px 0;
+}
+
+@media (min-width: 768px) {
+  .filter {
+    flex-direction: row;
+  }
+
+  .grid-event {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
