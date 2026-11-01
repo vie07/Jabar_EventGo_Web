@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nama": "Festival Kopi Jawa Barat",
+    "kategori": "Budaya",
+    "tanggal": "2026-11-12",
+    "kota": "Kota Bandung",
+    "poster": "/images/kopi.jpg",
+    "kuota": 100,
+    "terdaftar": 80
+  },
+  {
+    "id": 2,
+    "nama": "Seminar UMKM Digital",
+    "kategori": "Seminar",
+    "tanggal": "2026-11-20",
+    "kota": "Kota Bogor",
+    "poster": "/images/umkm.jpg",
+    "kuota": 50,
+    "terdaftar": 50
+  },
+  {
+    "id": 3,
+    "nama": "Fun Run Pangandaran",
+    "kategori": "Olahraga",
+    "tanggal": "2026-12-01",
+    "kota": "Kabupaten Pangandaran",
+    "poster": "/images/run.jpg",
+    "kuota": 200,
+    "terdaftar": 35
+  },
+  {
+    "id": 4,
+    "nama": "Konser Musik Sunda",
+    "kategori": "Musik",
+    "tanggal": "2026-11-12",
+    "kota": "Kota Bandung",
+    "poster": "/images/sunda.jpg",
+    "kuota": 150,
+    "terdaftar": 90
+  },
+  {
+    "id": 5,
+    "nama": "Workshop Desain Grafis",
+    "kategori": "Seminar",
+    "tanggal": "2026-11-28",
+    "kota": "Kota Bekasi",
+    "poster": "/images/desain.jpg",
+    "kuota": 40,
+    "terdaftar": 12
+  },
+  {
+    "id": 6,
+    "nama": "Pentas Angklung Bogor",
+    "kategori": "Budaya",
+    "tanggal": "2026-12-05",
+    "kota": "Kota Bogor",
+    "poster": "/images/angklung.jpg",
+    "kuota": 80,
+    "terdaftar": 20
+  }
+]
