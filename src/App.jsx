@@ -1,35 +1,55 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Login from './components/Login';
-import Beranda from './components/Beranda';
-import DetailEvent from './components/DetailEvent';
-import ProtectedRoute from './components/ProtectedRoute';
+import { Routes, Route, Navigate } from "react-router-dom";
+import Login from "./components/Login";
+import Beranda from "./components/Beranda";
+import DetailEvent from "./components/DetailEvent";
+import TiketSaya from "./components/TiketSaya";
+
+import ProtectedRoute from "./components/ProtectedRoute";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route element={<Layout />}>
+        {/* Halaman login */}
+        <Route path="/login" element={<Login />} />
 
-      {/* Halaman peserta */}
-      <Route
-        path="/"
-        element={
-          <ProtectedRoute allowedRole="peserta">
-            <Beranda />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/event/:id"
-        element={
-          <ProtectedRoute allowedRole="peserta">
-            <DetailEvent />
-          </ProtectedRoute>
-        }
-      />
+        {/* Halaman peserta */}
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute allowedRole="peserta">
+              <Beranda />
+            </ProtectedRoute>
+          }
+        />
 
-      {/* TODO anggota lain: /tiket-saya, /profil, /kelola-event, /peserta */}
+        {/* Detail event */}
+        <Route
+          path="/event/:id"
+          element={
+            <ProtectedRoute allowedRole="peserta">
+              <DetailEvent />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route path="*" element={<Navigate to="/" replace />} />
+        {/* Halaman Tiket Saya - Anggota D */}
+        <Route
+          path="/tiket-saya"
+          element={
+            <ProtectedRoute allowedRole="peserta">
+              <TiketSaya />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Halaman tidak ditemukan */}
+        <Route
+          path="*"
+          element={<Navigate to="/" replace />}
+        />
+      </Route>
     </Routes>
   );
 }

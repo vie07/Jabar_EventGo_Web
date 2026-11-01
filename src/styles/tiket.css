@@ -1,0 +1,122 @@
+.tiket-saya {
+  min-height: 65vh;
+}
+
+.judul-tiket {
+  color: #1b3b6f;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.tiket-kosong {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 40px 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.ikon-tiket-kosong {
+  font-size: 55px;
+  margin-bottom: 16px;
+}
+
+.tiket-kosong .pesan {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1b3b6f;
+}
+
+.tiket-kosong p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.tiket-daftar {
+  display: grid;
+  gap: 16px;
+}
+
+.tiket-kartu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tiket-kartu:hover {
+  border-color: #0e8388;
+  box-shadow: 0 4px 14px rgba(14, 131, 136, 0.12);
+  transform: translateY(-2px);
+}
+
+.tiket-info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.tiket-nama {
+  color: #1b3b6f;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.tiket-meta {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.tiket-kode {
+  color: #0e8388;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.qr-tiket {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0 12px;
+}
+
+.tiket-kode-besar {
+  color: #1b3b6f;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 10px 0;
+}
+
+.tiket-detail dt {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 12px;
+}
+
+.tiket-detail dd {
+  color: #1e293b;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+  .tiket-kartu {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .judul-tiket {
+    font-size: 1.6rem;
+  }
+}
