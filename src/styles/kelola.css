@@ -1,0 +1,143 @@
+/* Kelola Event & Form Event (Anggota E) — memakai variabel warna global.css */
+
+/* h1 global (beranda.css) rata tengah; di sini dikembalikan ke kiri */
+.judul-kelola {
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-align: left;
+  margin: 0;
+  color: var(--jabar-navy);
+}
+
+.teks-redup {
+  color: var(--cool-grey);
+}
+
+.ringkasan {
+  background: var(--pure-white);
+  border: 1px solid var(--border-slate);
+  border-left: 5px solid var(--teal-pasundan);
+}
+
+.col-md-4:nth-child(2) .ringkasan {
+  border-left-color: var(--gold);
+}
+
+.col-md-4:nth-child(3) .ringkasan {
+  border-left-color: var(--jabar-navy);
+}
+
+.ringkasan .fw-bold {
+  color: var(--jabar-navy);
+}
+
+.kartu-kelola {
+  background: var(--pure-white);
+  border: 1px solid var(--border-slate);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(17, 37, 71, 0.08);
+}
+
+.kartu-kelola .card-img-top {
+  height: 160px;
+  object-fit: cover;
+}
+
+.kartu-kelola .card-title {
+  color: var(--jabar-navy);
+  font-weight: 700;
+}
+
+.kartu-kelola .card-footer {
+  background: var(--pure-white);
+  border-top: 1px solid var(--border-slate);
+}
+
+.kartu-kelola .card-body p {
+  color: var(--cool-grey);
+}
+
+.kartu-kelola .card-body strong {
+  color: var(--charcoal-slate);
+}
+
+.label-kategori {
+  background-color: var(--teal-pasundan);
+  color: var(--pure-white);
+}
+
+.label-gratis {
+  background-color: var(--gold);
+  color: var(--charcoal-slate);
+}
+
+.progress {
+  background-color: var(--border-slate);
+}
+
+.bar-aman { background-color: var(--teal-pasundan); }
+.bar-menipis { background-color: var(--warning-color); }
+.bar-penuh { background-color: var(--danger-color); }
+
+.teks-penuh {
+  color: var(--danger-color);
+  font-weight: 600;
+}
+
+.btn-outline-navy {
+  --bs-btn-color: var(--jabar-navy);
+  --bs-btn-border-color: var(--jabar-navy);
+  --bs-btn-hover-color: var(--pure-white);
+  --bs-btn-hover-bg: var(--jabar-navy);
+  --bs-btn-hover-border-color: var(--jabar-navy);
+  --bs-btn-active-color: var(--pure-white);
+  --bs-btn-active-bg: var(--navy-dark);
+  --bs-btn-active-border-color: var(--navy-dark);
+}
+
+.btn-outline-primary {
+  --bs-btn-hover-color: var(--pure-white);
+}
+
+/* Form */
+.form-event {
+  max-width: 760px;
+}
+
+.form-event .form-label {
+  font-weight: 600;
+}
+
+.form-event .wajib {
+  color: var(--danger-color);
+}
+
+.pesan-field {
+  color: var(--danger-color);
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.pratinjau-poster {
+  display: block;
+  max-width: 320px;
+  max-height: 200px;
+  object-fit: cover;
+  border: 1px solid var(--border-slate);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.link-kembali-kelola {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--teal-pasundan);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link-kembali-kelola:hover {
+  color: var(--jabar-navy);
+  text-decoration: underline;
+}
