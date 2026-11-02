@@ -1,0 +1,93 @@
+/* ===== global.css — gaya bersama seluruh halaman Jabar EventGo ===== */
+
+:root {
+  /* Warna */
+  --jabar-navy: #1b3b6f;
+  --navy-dark: #112547;
+  --teal-pasundan: #0e8388;
+  --teal-dark: #0b6c70;
+  --gold: #e5a93c; /* Warm Amber */
+  --soft-grey: #f8f9fa;
+  --pure-white: #ffffff;
+  --charcoal-slate: #1e293b;
+  --cool-grey: #64748b;
+  --border-slate: #e2e8f0;
+  --danger-color: #dc2626;
+  --success-color: #16a34a;
+  --warning-color: #d97706;
+
+  --font-utama: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+
+  --bs-primary: var(--teal-pasundan);
+  --bs-primary-rgb: 14, 131, 136;
+  --bs-link-color: var(--teal-pasundan);
+  --bs-link-hover-color: var(--jabar-navy);
+  --bs-body-font-family: var(--font-utama);
+  --bs-body-color: var(--charcoal-slate);
+  --bs-body-bg: var(--soft-grey);
+  --bs-border-color: var(--border-slate);
+}
+
+body {
+  font-family: var(--font-utama);
+  color: var(--charcoal-slate);
+  background-color: var(--soft-grey);
+}
+
+h1, h2, h3, h4 {
+  color: var(--jabar-navy);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--teal-pasundan);
+  --bs-btn-border-color: var(--teal-pasundan);
+  --bs-btn-hover-bg: var(--teal-dark);
+  --bs-btn-hover-border-color: var(--teal-dark);
+  --bs-btn-active-bg: var(--navy-dark);
+  --bs-btn-active-border-color: var(--navy-dark);
+  --bs-btn-disabled-bg: var(--cool-grey);
+  --bs-btn-disabled-border-color: var(--cool-grey);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--teal-pasundan);
+  --bs-btn-border-color: var(--teal-pasundan);
+  --bs-btn-hover-bg: var(--teal-pasundan);
+  --bs-btn-hover-border-color: var(--teal-pasundan);
+  --bs-btn-active-bg: var(--teal-dark);
+  --bs-btn-active-border-color: var(--teal-dark);
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--teal-pasundan);
+  box-shadow: 0 0 0 0.25rem rgba(14, 131, 136, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: var(--teal-pasundan);
+  border-color: var(--teal-pasundan);
+}
+
+.alert-success { --bs-alert-color: #14532d; --bs-alert-bg: #dcfce7; --bs-alert-border-color: #86efac; }
+.alert-danger  { --bs-alert-color: #7f1d1d; --bs-alert-bg: #fee2e2; --bs-alert-border-color: #fca5a5; }
+.alert-warning { --bs-alert-color: #7c3a05; --bs-alert-bg: #fef3c7; --bs-alert-border-color: var(--warning-color); }
+
+/* Aksesibilitas */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+img {
+  max-width: 100%;
+}
