@@ -28,7 +28,7 @@ function FormPendaftaran({ event, sisaKuota, onBerhasil }) {
     setuju: false,
   });
   const [errors, setErrors] = useState({});
-  const [pesan, setPesan] = useState(null); ``
+  const [pesan, setPesan] = useState(null); 
   const [tiketBaru, setTiketBaru] = useState(null);
 
   const kuotaHabis = sisaKuota <= 0;
@@ -94,6 +94,27 @@ function FormPendaftaran({ event, sisaKuota, onBerhasil }) {
   };
 
   const selesai = Boolean(tiketBaru);
+
+  // Tamu (belum login) hanya boleh melihat event, tidak boleh mendaftar
+  if (!user.email || user.role !== "peserta") {
+    return (
+      <section className="form-daftar" aria-labelledby="judul-daftar">
+        <h2 id="judul-daftar">Daftar Event</h2>
+        <div className="alert alert-warning" role="status">
+          Kamu perlu masuk terlebih dahulu untuk mendaftar event ini.
+        </div>
+        <Link
+          to="/login"
+          className="btn btn-primary w-100"
+          onClick={() =>
+            sessionStorage.setItem("redirectSetelahLogin", `/event/${event.id}`)
+          }
+        >
+          Masuk / Daftar Akun
+        </Link>
+      </section>
+    );
+  }
 
   return (
     <section className="form-daftar" aria-labelledby="judul-daftar">

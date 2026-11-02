@@ -5,7 +5,9 @@ import DetailEvent from "./components/DetailEvent";
 import TiketSaya from "./components/TiketSaya";
 
 import ProtectedRoute from "./components/ProtectedRoute";
+import PublikRoute from "./components/PublikRoute";
 import Layout from "./components/Layout";
+import { ruteKelolaEvent } from "./routes/ruteKelolaEvent";
 
 function App() {
   return (
@@ -14,27 +16,25 @@ function App() {
         {/* Halaman login */}
         <Route path="/login" element={<Login />} />
 
-        {/* Halaman peserta */}
+        {/* Boleh dilihat tamu (tanpa login); mendaftar event tetap wajib login */}
         <Route
           path="/"
           element={
-            <ProtectedRoute allowedRole="peserta">
+            <PublikRoute>
               <Beranda />
-            </ProtectedRoute>
+            </PublikRoute>
           }
         />
-
-        {/* Detail event */}
         <Route
           path="/event/:id"
           element={
-            <ProtectedRoute allowedRole="peserta">
+            <PublikRoute>
               <DetailEvent />
-            </ProtectedRoute>
+            </PublikRoute>
           }
         />
 
-        {/* Halaman Tiket Saya - Anggota D */}
+        {/* Tiket Saya - Anggota D (wajib login sebagai peserta) */}
         <Route
           path="/tiket-saya"
           element={
@@ -44,11 +44,11 @@ function App() {
           }
         />
 
+        {/* Kelola Event, Form Event, Peserta - penyelenggara */}
+        {ruteKelolaEvent()}
+
         {/* Halaman tidak ditemukan */}
-        <Route
-          path="*"
-          element={<Navigate to="/" replace />}
-        />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   );

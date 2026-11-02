@@ -16,10 +16,8 @@
   --success-color: #16a34a;
   --warning-color: #d97706;
 
-  /* Font */
   --font-utama: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
 
-  /* Mapping ke variabel Bootstrap */
   --bs-primary: var(--teal-pasundan);
   --bs-primary-rgb: 14, 131, 136;
   --bs-link-color: var(--teal-pasundan);
@@ -40,7 +38,6 @@ h1, h2, h3, h4 {
   color: var(--jabar-navy);
 }
 
-/* ===== Override warna Bootstrap ===== */
 .btn-primary {
   --bs-btn-bg: var(--teal-pasundan);
   --bs-btn-border-color: var(--teal-pasundan);
@@ -77,7 +74,7 @@ h1, h2, h3, h4 {
 .alert-danger  { --bs-alert-color: #7f1d1d; --bs-alert-bg: #fee2e2; --bs-alert-border-color: #fca5a5; }
 .alert-warning { --bs-alert-color: #7c3a05; --bs-alert-bg: #fef3c7; --bs-alert-border-color: var(--warning-color); }
 
-/* ===== Aksesibilitas ===== */
+/* Aksesibilitas */
 :focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 2px;
