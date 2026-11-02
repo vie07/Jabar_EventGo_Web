@@ -4,10 +4,7 @@ import KelolaEvent from "../components/KelolaEvent";
 import FormEvent from "../components/FormEvent";
 import PesertaEvent from "../components/PesertaEvent";
 
-// Rute halaman penyelenggara milik Anggota E.
 // Dipasang di App.jsx dengan memanggil ruteKelolaEvent() di dalam <Routes>
-// (lihat CATATAN_ANGGOTA_E.md). Dibuat sebagai fungsi, bukan komponen,
-// karena <Routes> hanya menerima <Route> atau fragment sebagai anak.
 export function ruteKelolaEvent() {
   return (
     <>
@@ -41,7 +38,7 @@ export function ruteKelolaEvent() {
         }
       />
 
-      {/* Peserta - SEMENTARA, nanti diganti halaman Peserta & Check-in (Anggota F) */}
+      {/* Peserta - SEMENTARA, nanti diganti halaman Peserta & Check-in */}
       <Route
         path="/peserta"
         element={
