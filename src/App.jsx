@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/Login";
+import Profil from "./components/profil";
 import Beranda from "./components/Beranda";
 import DetailEvent from "./components/DetailEvent";
 import TiketSaya from "./components/TiketSaya";
@@ -15,6 +16,16 @@ function App() {
       <Route element={<Layout />}>
         {/* Halaman login */}
         <Route path="/login" element={<Login />} />
+
+        {/* Halaman Profil (Peserta & Penyelenggara) */}
+        <Route
+          path="/profil"
+          element={
+            <ProtectedRoute>
+              <Profil />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Boleh dilihat tamu (tanpa login); mendaftar event tetap wajib login */}
         <Route
@@ -34,7 +45,7 @@ function App() {
           }
         />
 
-        {/* Tiket Saya - Anggota D (wajib login sebagai peserta) */}
+        {/* Tiket Saya */}
         <Route
           path="/tiket-saya"
           element={
