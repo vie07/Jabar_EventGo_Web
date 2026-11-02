@@ -114,12 +114,142 @@ export function hapusEvent(id) {
 // Jumlahnya selalu sama dengan kuota terisi di kartu (hitungTerisi).
 export async function muatPesertaEvent(event) {
   let bawaan = [];
+
   if ((event.terdaftar || 0) > 0) {
     const res = await fetch("/data/pesertaBawaan.json");
-    if (!res.ok) throw new Error("Gagal memuat data peserta");
+
+    if (!res.ok) {
+      throw new Error("Gagal memuat data peserta");
+    }
+
     const semua = await res.json();
-    bawaan = semua.filter((p) => p.eventId === event.id).slice(0, event.terdaftar);
+
+    bawaan = semua
+      .filter((p) => p.eventId === event.id)
+      .slice(0, event.terdaftar);
   }
-  const baru = ambilSemuaTiket().filter((t) => t.eventId === event.id);
+
+  // Ambil status check-in peserta bawaan
+  let statusTersimpan = {};
+
+  try {
+    statusTersimpan = JSON.parse(
+      localStorage.getItem("statusCheckInPeserta") || "{}"
+    );
+  } catch {
+    statusTersimpan = {};
+  }
+
+  bawaan = bawaan.map((p) => ({
+    ...p,
+    statusCheckIn: Boolean(
+      statusTersimpan[p.kode] || p.statusCheckIn
+    ),
+  }));
+
+  // Ambil peserta hasil pendaftaran aplikasi
+  const baru = ambilSemuaTiket().filter(
+    (t) => String(t.eventId) === String(event.id)
+  );
+
   return [...bawaan, ...baru];
+}
+
+// Key untuk menyimpan status check-in peserta bawaan
+const KUNCI_CHECKIN_BAWAAN = "statusCheckInPeserta";
+
+// Memproses check-in berdasarkan event dan kode tiket
+export async function prosesCheckIn(eventId, kode) {
+  const kodeBersih = String(kode).trim().toUpperCase();
+
+  // Validasi format kode tiket
+  if (!/^EVG-\d{3}-[A-Z0-9]{6}$/.test(kodeBersih)) {
+    return {
+      berhasil: false,
+      pesan: "Format kode tiket tidak valid. Contoh: EVG-001-96RAFH",
+    };
+  }
+
+  // Periksa tiket hasil pendaftaran dari localStorage
+  const semuaTiket = ambilSemuaTiket();
+
+  const indeksTiket = semuaTiket.findIndex(
+    (t) =>
+      String(t.kode).toUpperCase() === kodeBersih &&
+      String(t.eventId) === String(eventId)
+  );
+
+  if (indeksTiket !== -1) {
+    if (semuaTiket[indeksTiket].statusCheckIn) {
+      return {
+        berhasil: false,
+        pesan: "Tiket sudah digunakan",
+      };
+    }
+
+    semuaTiket[indeksTiket] = {
+      ...semuaTiket[indeksTiket],
+      statusCheckIn: true,
+    };
+
+    localStorage.setItem(KUNCI_TIKET, JSON.stringify(semuaTiket));
+
+    return {
+      berhasil: true,
+      pesan: "Check-in berhasil",
+    };
+  }
+
+  // Periksa peserta bawaan dari JSON
+  const response = await fetch("/data/pesertaBawaan.json");
+
+  if (!response.ok) {
+    throw new Error("Gagal memuat data peserta");
+  }
+
+  const pesertaBawaan = await response.json();
+
+  const peserta = pesertaBawaan.find(
+    (p) =>
+      String(p.kode).toUpperCase() === kodeBersih &&
+      String(p.eventId) === String(eventId)
+  );
+
+  if (!peserta) {
+    return {
+      berhasil: false,
+      pesan: "Kode tiket tidak ditemukan",
+    };
+  }
+
+  // Ambil status check-in peserta bawaan
+  let statusTersimpan = {};
+
+  try {
+    statusTersimpan = JSON.parse(
+      localStorage.getItem(KUNCI_CHECKIN_BAWAAN) || "{}"
+    );
+  } catch {
+    statusTersimpan = {};
+  }
+
+  if (statusTersimpan[kodeBersih]) {
+    return {
+      berhasil: false,
+      pesan: "Tiket sudah digunakan",
+    };
+  }
+
+  // Simpan status check-in
+  statusTersimpan[kodeBersih] = true;
+
+  localStorage.setItem(
+    KUNCI_CHECKIN_BAWAAN,
+    JSON.stringify(statusTersimpan)
+  );
+
+  return {
+    berhasil: true,
+    pesan: "Check-in berhasil",
+  };
 }

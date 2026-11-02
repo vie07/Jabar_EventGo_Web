@@ -10,6 +10,7 @@ import {
   muatPesertaEvent,
   milikPenyelenggara,
   hitungTerisi,
+  prosesCheckIn,
 } from "../utils/kelolaEvent";
 import "../styles/kelola.css";
 
@@ -29,6 +30,44 @@ function PesertaEvent() {
   const [idPilih, setIdPilih] = useState(String(idAwal));
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  //state untuk checkin aing
+  const [kodeTiket, setKodeTiket] = useState("");
+  const [pesanCheckIn, setPesanCheckIn] = useState("");
+  const [jenisPesan, setJenisPesan] = useState("");
+  const [loadingCheckIn, setLoadingCheckIn] = useState(false);
+
+  //proses data checkin
+  const handleCheckIn = async (e) => {
+    e.preventDefault();
+
+    if (!event) {
+      setPesanCheckIn("Silakan pilih event terlebih dahulu");
+      setJenisPesan("danger");
+      return;
+    }
+
+    setLoadingCheckIn(true);
+    setPesanCheckIn("");
+
+    try {
+      const hasil = await prosesCheckIn(event.id, kodeTiket);
+
+      setPesanCheckIn(hasil.pesan);
+      setJenisPesan(hasil.berhasil ? "success" : "danger");
+
+      if (hasil.berhasil) {
+        const dataPeserta = await muatPesertaEvent(event);
+        setPeserta(dataPeserta);
+        setKodeTiket("");
+      }
+    } catch (error) {
+      setPesanCheckIn("Gagal memproses check-in");
+      setJenisPesan("danger");
+    } finally {
+      setLoadingCheckIn(false);
+    }
+  };
 
   const muatEvent = () => {
     setLoading(true);
@@ -96,6 +135,40 @@ function PesertaEvent() {
                 {hitungTerisi(event)}/{event.kuota} kuota terisi
               </p>
 
+              <div className="card p-3 mb-4">
+                <h5 className="fw-bold">Check-in Peserta</h5>
+                <p className="text-muted">
+                  Masukkan kode tiket peserta untuk melakukan check-in.
+                </p>
+
+                <form onSubmit={handleCheckIn}>
+                  <div className="input-group">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Contoh: EVG-001-96RAFH"
+                      value={kodeTiket}
+                      onChange={(e) => setKodeTiket(e.target.value)}
+                      required
+                    />
+
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      disabled={loadingCheckIn}
+                    >
+                      {loadingCheckIn ? "Memproses..." : "Check-in"}
+                    </button>
+                  </div>
+                </form>
+
+                {pesanCheckIn && (
+                  <div className={`alert alert-${jenisPesan} mt-3 mb-0`}>
+                    {pesanCheckIn}
+                  </div>
+                )}
+              </div>
+
               {errorPeserta && <p className="pesan-error">{errorPeserta}</p>}
 
               {!errorPeserta && peserta.length === 0 ? (
@@ -122,8 +195,13 @@ function PesertaEvent() {
                           <td>{t.noHp}</td>
                           <td>{t.kode}</td>
                           <td>
-                            <span className={`badge ${t.statusCheckIn ? "text-bg-success" : "text-bg-primary"}`}>
-                              {t.statusCheckIn ? "Sudah check-in" : "Aktif"}
+                            <span
+                              className={`badge ${t.statusCheckIn
+                                  ? "text-bg-success"
+                                  : "text-bg-warning"
+                                }`}
+                            >
+                              {t.statusCheckIn ? "Sudah Check-in" : "Belum Check-in"}
                             </span>
                           </td>
                         </tr>

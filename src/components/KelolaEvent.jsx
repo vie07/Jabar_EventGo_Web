@@ -4,7 +4,7 @@ import KartuKelolaEvent from "./KartuKelolaEvent";
 import Loading from "./Loading";
 import ErrorMessage from "./ErrorMessage";
 import EmptyState from "./EmptyState";
-import { ambilSemuaTiket } from "../utils/tiket";
+import { ambilSemuaTiket, KUNCI_TIKET } from "../utils/tiket";
 import { formatTanggal } from "../utils/format";
 import {
   ambilUser,
