@@ -1,0 +1,99 @@
+/* Layout utama */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-main {
+  flex: 1;
+  width: 100%;
+}
+
+/* Navbar */
+.navbar-eventgo {
+  background-color: #ffffff;
+  min-height: 70px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-eventgo .navbar-brand {
+  color: #1b3b6f !important;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.navbar-eventgo .navbar-brand span {
+  color: #0e8388;
+}
+
+.navbar-eventgo .nav-link {
+  color: #334155 !important;
+  font-weight: 600;
+  padding: 10px 16px !important;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.navbar-eventgo .nav-link:hover {
+  color: #0e8388 !important;
+  background-color: #f0fdfa;
+}
+
+.navbar-eventgo .nav-link.active {
+  color: #0e8388 !important;
+  background-color: #e6f5f4;
+}
+
+.btn-logout {
+  background-color: #ffffff;
+  color: #0e8388;
+  border: 1px solid #0e8388;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 600;
+}
+
+.btn-logout:hover {
+  background-color: #0e8388;
+  color: #ffffff;
+}
+
+.btn-login {
+  background-color: #0e8388;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 600;
+}
+
+.btn-login:hover {
+  background-color: #0b6c70;
+  color: #ffffff;
+}
+
+/* Footer */
+.layout-footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+}
+
+@media (max-width: 991px) {
+  .navbar-eventgo .navbar-nav {
+    padding-top: 12px;
+    align-items: stretch !important;
+  }
+
+  .navbar-eventgo .nav-link {
+    padding: 10px !important;
+  }
+
+  .btn-logout {
+    margin-top: 8px;
+  }
+}
